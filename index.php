@@ -12,12 +12,12 @@
   	</head>
 	<body id="LoginForm">
 		<div class="container">
-		<h1 class="form-heading">login Form</h1>
+		<h1 class="form-heading">Sevrveur Magoni</h1>
 			<div class="login-form">
 				<div class="main-div">
 				    <div class="panel">
-					   	<h2>Admin Login</h2>
-					   	<p>Please enter your email and password</p>
+					   	<h2>Panel de connexion</h2>
+					   	<p>Entrez votre identifiant et votre mot de passe</p>
 				   	</div>
 				    <form id="Login" method="POST">
 				    	<div class="form-group">
@@ -27,12 +27,11 @@
 				            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
 				        </div>
 				        <div class="forgot">
-				        	<a href="reset.html">Forgot password?</a>
+				        	<a href="reset.html">Mot de passe perdu?</a>
 						</div>
-				        <button type="submit" class="btn btn-primary">Login</button>
+				        <button type="submit" class="btn btn-primary">Connexion</button>
 				    </form>
 				</div>
-				<p class="botto-text"> Designed by Sunil Rajput</p>
 			</div>
 		</div>
 	</body>

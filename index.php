@@ -5,13 +5,14 @@ if(isset($_POST['btn_connexion'])){
 	$username = htmlspecialchars($_POST['id']);
 	$password = htmlspecialchars($_POST['passwd']);
 	if(!empty($username) || !empty($password)){
+		session_start();
 		$requser = $bdd->prepare('SELECT * FROM users WHERE username = ? AND password = ?');
         $requser->execute(array($username, $password));
         $userexist = $requser->rowCount();
         if($userexist == 1){
-          $userinfo = $requser->fetch();
-          $_SESSION['userinfo'] = $userinfo;
-          header('Location: profil.php?id_user='.$_SESSION['userinfo']['id']);
+          	$userinfo = $requser->fetch();
+          	$_SESSION['userinfo'] = $userinfo;
+          	header('Location: Profil/profil.php?id_user='.$_SESSION['userinfo']['id']);
         }
 	}else{
 		$erreur = "Il manque une information au formulaire de connexion. Ressayer !";

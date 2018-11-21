@@ -2,8 +2,8 @@
 include_once('data_base.php');
 
 if(isset($_POST['btn_connexion'])){
-	$username = $_POST['id'];
-	$password = $_POST['passwd'];
+	$username = htmlspecialchars($_POST['id']);
+	$password = htmlspecialchars($_POST['passwd']);
 	if(!empty($username) || !empty($password)){
 		$requser = $bdd->prepare('SELECT * FROM users WHERE username = ? AND password = ?');
         $requser->execute(array($username, $password));
@@ -18,6 +18,7 @@ if(isset($_POST['btn_connexion'])){
 	}
 }
 ?>
+<meta charset="utf-8">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

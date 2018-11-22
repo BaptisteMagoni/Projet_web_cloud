@@ -51,7 +51,7 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="profil.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">
             <i class="fa fa-home"></i>
             <span>Votre cloud</span>
@@ -70,7 +70,7 @@
         </li>
         <?php } ?>
         <?php if($_SESSION['userinfo']['grade'] == "Administrateur" || $_SESSION['userinfo']['grade'] == "Developpeur"){ ?>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="developeur.php?id_user=<?=$_SESSION['userinfo']['id'] ?>">
             <i class="fa fa-gears"></i>
             <span>Option développeur</span></a>
@@ -79,19 +79,20 @@
       </ul>
 
       <div id="content-wrapper">
-
         <div class="container-fluid">
 
-          <!-- Breadcrumbs-->
-          <ol class="breadcrumb" style="background: #C0C0C0;">
-            <li class="breadcrumb-item">
-              <a href=""><i class="fa fa-home"></i> Mon Cloud</a>
-            </li>
-            <li class="breadcrumb-item active">Racine</li>
-          </ol>
-        </div>
-        <!-- /.container-fluid -->
-        <div class="container" style="border: 1px solid gray; padding: 350px; border-radius: 10px;">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb" style="background: #C0C0C0;">
+              <li class="breadcrumb-item active" style="color: black;"><i class="fa fa-gears"></i> Option développeur</li>
+            </ol>
+            <div id="btn-bg">
+              <div id="btn-highlight"></div>
+                <div id="btn-ring">
+                  <div id="ring-line"></div>
+                </div>
+            </div>
+
+            <div id="power-text" align="text-center">Le serveur est <strong>OFF</strong></div>
         </div>
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
@@ -150,6 +151,16 @@
     <!-- Demo scripts for this page-->
     <script src="js/demo/datatables-demo.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
+    <script type="text/javascript">
+      $('#btn-bg').click(function(){
+        $('#btn-bg').toggleClass('active');
+        if($('#btn-bg').hasClass("active")){
+          $('#power-text strong').text('ON').css('color', '#61fc8c');
+        }else{
+          $('#power-text strong').text('OFF').css('color', '#2a2a2a');
+        }
+      });
+    </script>
 
   </body>
 

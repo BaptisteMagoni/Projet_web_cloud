@@ -51,7 +51,7 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="profil.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">
             <i class="fa fa-home"></i>
             <span>Votre cloud</span>
@@ -63,7 +63,7 @@
             <span>Fichier partagé</span></a>
         </li>
         <?php if($_SESSION['userinfo']['grade'] == "Administrateur"){ ?>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="comptes.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Gestion de comptes</span></a>
@@ -79,20 +79,13 @@
       </ul>
 
       <div id="content-wrapper">
-
         <div class="container-fluid">
 
-          <!-- Breadcrumbs-->
-          <ol class="breadcrumb" style="background: #C0C0C0;">
-            <li class="breadcrumb-item">
-              <a href=""><i class="fa fa-home"></i> Mon Cloud</a>
-            </li>
-            <li class="breadcrumb-item active">Racine</li>
-          </ol>
-        </div>
-        <!-- /.container-fluid -->
-        <div class="container" style="border: 1px solid gray; padding: 350px; border-radius: 10px;">
-        </div>
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb" style="background: #C0C0C0;">
+              <li class="breadcrumb-item active" style="color: black;"><i class="fas fa-fw fa-table"></i> Gestion de comptes</li>
+            </ol>
+          </div>
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
           <div class="container my-auto">

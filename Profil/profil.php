@@ -17,17 +17,9 @@
 
     <title>Cloud</title>
 
-    <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Page level plugin CSS-->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <?php 
+    include_once('lib.php');
+    ?>
 
   </head>
 
@@ -44,7 +36,7 @@
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" placeholder="Chercher pour..." aria-label="Search" aria-describedby="basic-addon2">
           <div class="input-group-append">
             <button class="btn btn-primary" type="button">
               <i class="fas fa-search"></i>
@@ -60,8 +52,8 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+          <a class="nav-link" href="profil.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">
+            <i class="oi oi-person"></i>
             <span>Votre cloud</span>
           </a>
         </li>
@@ -70,11 +62,13 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Fichier partager</span></a>
         </li>
+        <?php if($_SESSION['userinfo']['grade'] == "Administrateur"){ ?>
         <li class="nav-item">
           <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <span>Gestion de compte</span></a>
         </li>
+        <?php } ?>
       </ul>
 
       <div id="content-wrapper">
@@ -82,7 +76,7 @@
         <div class="container-fluid">
 
           <!-- Breadcrumbs-->
-          <ol class="breadcrumb">
+          <ol class="breadcrumb" style="background: #A0A0A0;">
             <li class="breadcrumb-item">
               <a href="">Mon Cloud</a>
             </li>
@@ -90,7 +84,9 @@
           </ol>
         </div>
         <!-- /.container-fluid -->
-
+        <div class="container" style="border: 1px solid gray; padding: 350px; border-radius: 10px;">
+          
+        </div>
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
           <div class="container my-auto">

@@ -92,7 +92,6 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Id</th>
                   <th scope="col">Nom d'utilisateur</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Prenom</th>

@@ -3,6 +3,11 @@
   $adresse = "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].$_SERVER["REQUEST_URI"];
   $_SESSION['adresse'] = $adresse;
   include_once('../data_base.php');
+
+  if(isset($_POST['deconnexion'])){
+    include_once('../deconnexion.php');
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,17 +39,12 @@
       </button>
 
       <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" method="POST">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Chercher pour..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
+          <button style="margin-left: 20px;" type="submit" name="deconnexion" class="btn btn-secondary btn-sm">Déconnexion</button>
+          <button style="border-radius: 50%; margin-left: 40px; margin-right: 40px;" type="button"><i class="fas fa-user-alt"></i></button>
         </div>
       </form>
-
     </nav>
 
     <div id="wrapper">
@@ -54,7 +54,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="profil.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">
             <i class="fa fa-home"></i>
-            <span>Votre cloude</span>
+            <span>Votre cloud</span>
           </a>
         </li>
         <li class="nav-item">

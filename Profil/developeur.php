@@ -5,6 +5,7 @@
   include_once('../data_base.php');
 
   if(isset($_POST['maj_html_css'])){
+    echo "pull";
     exec("python3 /var/www/clone_project.py");
   }
 

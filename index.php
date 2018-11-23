@@ -34,7 +34,7 @@ if(isset($_POST['btn_connexion'])){
   	</head>
 	<body id="LoginForm">
 		<div class="container">
-		<h1 class="form-heading">Serveur Magoni</h1>
+		<h1 class="form-heading">Cloud serveur</h1>
 			<div class="login-form">
 				<div class="main-div">
 				    <div class="panel">

@@ -85,6 +85,27 @@
             <ol class="breadcrumb" style="background: #C0C0C0;">
               <li class="breadcrumb-item active" style="color: black;"><i class="fas fa-fw fa-table"></i> Gestion de comptes</li>
             </ol>
+            <table class="table table-striped table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nom d'utilisateur</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prenom</th>
+                  <th scope="col">Grade</th>
+                  <th scope="col">Prenom</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         <!-- Sticky Footer -->
         <footer class="sticky-footer">

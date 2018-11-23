@@ -99,8 +99,8 @@
                   <th scope="col">Grade</th>
                 </tr>
               </thead>
-              <?php while($m = $req_users->fecth()){?>
               <tbody>
+                <?php while($m = $req_users->fecth()){ $gp = array($m);?>
                 <tr>
                   <th scope="row"><?=$m['id']?></th>
                   <th scope="row"><?=$m['username']?></th>
@@ -108,8 +108,8 @@
                   <th scope="row"><?=$m['prenom']?></th>
                   <th scope="row"><?=$m['grade']?></th>
                 </tr>
+                <?php } ?>
               </tbody>
-              <?php } ?>
             </table>
           </div>
         <!-- Sticky Footer -->

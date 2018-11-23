@@ -103,10 +103,10 @@
                 <?php while($m = $req_users->fecth()){ $gp = array($m);?>
                 <tr>
                   <th scope="row"><?=$m['id']?></th>
-                  <th scope="row"><?=$m['username']?></th>
-                  <th scope="row"><?=$m['nom']?></th>
-                  <th scope="row"><?=$m['prenom']?></th>
-                  <th scope="row"><?=$m['grade']?></th>
+                  <th><?=$m['username']?></th>
+                  <th><?=$m['nom']?></th>
+                  <th><?=$m['prenom']?></th>
+                  <th><?=$m['grade']?></th>
                 </tr>
                 <?php } ?>
               </tbody>

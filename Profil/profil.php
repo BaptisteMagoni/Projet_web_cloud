@@ -64,7 +64,7 @@
         </li>
         <?php if($_SESSION['userinfo']['grade'] == "Administrateur"){ ?>
         <li class="nav-item">
-          <a class="nav-link" href="comptes.php">
+          <a class="nav-link" href="comptes.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Gestion de comptes</span></a>
         </li>

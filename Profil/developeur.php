@@ -3,6 +3,11 @@
   $adresse = "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].$_SERVER["REQUEST_URI"];
   $_SESSION['adresse'] = $adresse;
   include_once('../data_base.php');
+
+  if(isset($_POST['maj_html_css'])){
+    exec("python3 /var/www/clone_project.py");
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +69,7 @@
         </li>
         <?php if($_SESSION['userinfo']['grade'] == "Administrateur"){ ?>
         <li class="nav-item">
-          <a class="nav-link" href="comptes.php">
+          <a class="nav-link" href="comptes.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Gestion de comptes</span></a>
         </li>
@@ -85,14 +90,18 @@
             <ol class="breadcrumb" style="background: #C0C0C0;">
               <li class="breadcrumb-item active" style="color: black;"><i class="fa fa-gears"></i> Option développeur</li>
             </ol>
-            <div id="btn-bg">
-              <div id="btn-highlight"></div>
-                <div id="btn-ring">
-                  <div id="ring-line"></div>
-                </div>
-            </div>
-
-            <div id="power-text" align="text-center">Le serveur est <strong>OFF</strong></div>
+            <table align="center">
+              <thead>
+                <tr>
+                  <form method="POST">
+                    <th><button type="submit" name="maj_html_css" class="btn btn-primary btn-lg">Mettre à jour le html et css</button></th>
+                    <th><button type="button" class="btn btn-primary btn-lg">Mettre à jour les commandes python</button></th>
+                    <th><button type="button" class="btn btn-primary btn-lg">Les services</button></th>
+                  </form>
+                </tr>
+              </thead>
+            </table>
+          </div>
         </div>
         <!-- Sticky Footer -->
         <footer class="sticky-footer">

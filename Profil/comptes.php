@@ -3,8 +3,24 @@
   $adresse = "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].$_SERVER["REQUEST_URI"];
   $_SESSION['adresse'] = $adresse;
   include_once('../data_base.php');
-
+  include_once('formulaire_ajout_membre.php');
   $req_users = $bdd->query("SELECT * FROM users");
+
+  if(isset($_POST['supprimer'])){
+    $id_user = (int) $_GET['supprimer'];
+    $req_user = $bdd->query("DELETE FROM users WHERE id=".$id_user);
+    $list = array();
+    $list = explode("&", $adresse);
+    header("Location: ".$list[0]);
+  }
+
+  if(isset($_POST['modifier'])){
+    $id_user = (int) $_GET['modifie'];
+    //$req_user = $bdd->query("DELETE FROM users WHERE id=".$id_user);
+    $list = array();
+    $list = explode("&", $adresse);
+    header("Location: ".$list[0]);
+  }
 
 ?>
 <!DOCTYPE html>
@@ -67,7 +83,7 @@
         </li>
         <?php if($_SESSION['userinfo']['grade'] == "Administrateur"){ ?>
         <li class="nav-item active">
-          <a class="nav-link" href="comptes.php">
+          <a class="nav-link" href="comptes.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Gestion de comptes</span></a>
         </li>
@@ -96,6 +112,8 @@
                   <th scope="col">Nom</th>
                   <th scope="col">Prenom</th>
                   <th scope="col">Grade</th>
+                  <th scope="col">Suppression</th>
+                  <th scope="col">Modification</th>
                 </tr>
               </thead>
               <tbody>
@@ -106,10 +124,55 @@
                   <th><?=$m['nom']?></th>
                   <th><?=$m['prenom']?></th>
                   <th><?=$m['grade']?></th>
+                  <th>
+                    <form method="POST" action="<?= $adresse."&supprimer=".$m['id'] ?>">
+                      <button type="submit" name="supprimer" class="btn btn-danger">Supprimer</button>
+                    </form>
+                  </th>
+                  <th>
+                    <form method="POST" action="<?= $adresse."&modifie=".$m['id'] ?>">
+                      <button type="submit" name="modifier" class="btn btn-primary">Modifier</button>
+                    </form>
+                  </th>
                 </tr>
                 <?php } ?>
               </tbody>
             </table>
+            <form method="POST">
+              <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalLong">Ajouter un nouvelle utilisateur</button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un utilisateur</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="identifie" placeholder="Identifiant">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="nom" placeholder="Nom">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="prenom" placeholder="Prenom">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" name="passwd" placeholder="Mot de passe">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                      <button type="submit" name="valide" class="btn btn-success">Valider</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         <!-- Sticky Footer -->
         <footer class="sticky-footer">

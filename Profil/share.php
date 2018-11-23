@@ -3,6 +3,9 @@
   $adresse = "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].$_SERVER["REQUEST_URI"];
   $_SESSION['adresse'] = $adresse;
   include_once('../data_base.php');
+  if(isset($_POST['deconnexion'])){
+    include_once('../deconnexion.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

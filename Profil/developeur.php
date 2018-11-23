@@ -4,6 +4,10 @@
   $_SESSION['adresse'] = $adresse;
   include_once('../data_base.php');
 
+  if(isset($_POST['deconnexion'])){
+    include_once('../deconnexion.php');
+  }
+  
   if(isset($_POST['maj_html_css'])){
     $command = escapeshellcmd('/var/www/clone_project.py');
     $output = shell_exec($command);

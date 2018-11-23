@@ -4,8 +4,13 @@
   $_SESSION['adresse'] = $adresse;
   include_once('../data_base.php');
   include_once('formulaire_ajout_membre.php');
-  $req_users = $bdd->query("SELECT * FROM users");
 
+  if(isset($_POST['deconnexion'])){
+    include_once('../deconnexion.php');
+  }
+
+  $req_users = $bdd->query("SELECT * FROM users");
+  
   if(isset($_POST['supprimer'])){
     $id_user = (int) $_GET['supprimer'];
     $req_user = $bdd->query("DELETE FROM users WHERE id=".$id_user);

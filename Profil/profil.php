@@ -54,7 +54,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="profil.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">
             <i class="fa fa-home"></i>
-            <span>Votre cloud</span>
+            <span>Votre cloude</span>
           </a>
         </li>
         <li class="nav-item">

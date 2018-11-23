@@ -100,7 +100,7 @@
                 </tr>
               </thead>
               <tbody>
-                <?php while($m = $req_users->fecth()){ $gp = array($m);?>
+                <?php while($m = $req_users->fetch()){ $gp = array($m);?>
                 <tr>
                   <th scope="row"><?=$m['id']?></th>
                   <th><?=$m['username']?></th>

@@ -87,7 +87,6 @@
             <li class="breadcrumb-item">
               <a href=""><i class="fa fa-home"></i> Mon Cloud</a>
             </li>
-            <li class="breadcrumb-item active">Racine</li>
           </ol>
         </div>
         <!-- /.container-fluid -->

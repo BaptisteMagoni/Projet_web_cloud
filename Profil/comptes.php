@@ -3,6 +3,9 @@
   $adresse = "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].$_SERVER["REQUEST_URI"];
   $_SESSION['adresse'] = $adresse;
   include_once('../data_base.php');
+
+  $req_users = $bdd->query("SELECT * FROM users");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,16 +97,18 @@
                   <th scope="col">Nom</th>
                   <th scope="col">Prenom</th>
                   <th scope="col">Grade</th>
-                  <th scope="col">Prenom</th>
                 </tr>
               </thead>
               <tbody>
+              <?php while($m = $req_users->fecth()){?>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <th scope="row"><?=$m['id']?></th>
+                  <th scope="row"><?=$m['username']?></th>
+                  <th scope="row"><?=$m['nom']?></th>
+                  <th scope="row"><?=$m['prenom']?></th>
+                  <th scope="row"><?=$m['grade']?></th>
                 </tr>
+              <?php } ?>
               </tbody>
             </table>
           </div>

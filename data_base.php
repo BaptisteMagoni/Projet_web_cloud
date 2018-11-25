@@ -1,6 +1,6 @@
 <?php
 	try{
-		$bdd = new PDO('mysql:host=192.168.1.37:3306;dbname=bdd_web;charset=utf8', 'Baptiste', 'titibaba44');
+		$bdd = new PDO('mysql:host=176.132.180.249:3306;dbname=bdd_web;charset=utf8', 'Baptiste', 'titibaba44');
 	}catch(Exception $e){
 
 		if($e->getMessage() == "SQLSTATE[HY000] [2005] Unknown MySQL server host '192.168.1.37:3306' (2)")

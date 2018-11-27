@@ -28,23 +28,7 @@
 
   <body id="page-top">
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
-      <a class="navbar-brand mr-1" href="profil.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">Bienvenue <?php echo $_SESSION['userinfo']['nom'] ." ".$_SESSION['userinfo']['prenom'] ?></a>
-
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" method="POST">
-        <div class="input-group">
-          <button style="margin-left: 20px;" type="submit" name="deconnexion" class="btn btn-secondary btn-sm">Déconnexion</button>
-          <button style="border-radius: 50%; margin-left: 40px; margin-right: 40px;" type="button"><i class="fas fa-user-alt"></i></button>
-        </div>
-      </form>
-
-    </nav>
+    <?php include_once('nav.php') ?>
 
     <div id="wrapper">
 

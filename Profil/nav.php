@@ -1,3 +1,18 @@
+<?php 
+if(isset($_POST['save_profil'])){
+  echo "save";
+  if(!empty($_POST['identifie']) OR !empty($_POST['nom']) OR !empty($_POST['prenom']) OR !empty($_POST['passwd'])){
+      $username = $_POST['identifie'];
+      $nom = $_POST['nom'];
+      $prenom = $_POST['prenom'];
+      $passwd = $_POST['passwd'];
+
+      $req_update = $bdd->prepare('UPDATE users SET username = ?, password = ?, nom = ?, prenom = ? WHERE id = ?');
+      $req_update->execute(array($username, $nom, $prenom, $passwd, (int) $_SESSION['userinfo']['id']));
+  }
+}
+?>
+
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
     <a class="navbar-brand mr-1" href="profil.php?id_user=<?= $_SESSION['userinfo']['id'] ?>">Bienvenue <?php echo $_SESSION['userinfo']['nom'] ." ".$_SESSION['userinfo']['prenom'] ?></a>
@@ -40,7 +55,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-success">Enregistrer vos modification</button>
+                <button type="submit" name="save_profil" data-dimiss="modal" class="btn btn-success">Enregistrer vos modification</button>
               </div>
             </div>
           </div>

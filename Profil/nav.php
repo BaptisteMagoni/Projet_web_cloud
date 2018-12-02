@@ -8,7 +8,7 @@ if(isset($_POST['save_profil'])){
       $passwd = $_POST['passwd'];
 
       $req_update = $bdd->prepare('UPDATE users SET username = ?, password = ?, nom = ?, prenom = ? WHERE id = ?');
-      $req_update->execute(array($username, $nom, $prenom, $passwd, (int) $_SESSION['userinfo']['id']));
+      $req_update->execute(array($username, $passwd, $nom, $prenom, (int) $_SESSION['userinfo']['id']));
   }
 }
 ?>
